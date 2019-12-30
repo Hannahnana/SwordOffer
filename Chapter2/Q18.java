@@ -46,11 +46,11 @@ public class Q18 {
 		}else if(head == pToBeDeleted) { //只有一个节点
 			head = null;
 		}else { //删尾节点
-			ListNode p = head;
-			while(p.next!=null) {
-				p = p.next;
+//			ListNode p = head;
+			while(head.next.next!=null) {
+				head = head.next;
 			}
-			p.next = null;
+			head.next = null;
 		}
 	}
 }

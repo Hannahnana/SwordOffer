@@ -53,42 +53,28 @@ public class Q21 {
 		}
 	}
 	//在实现题目要求的同时，保证奇数部分和偶数部分内部相对顺序不变
-	//但时间效率太低了
+	//但时间效率太低了，我的思路是，从前往后扫描，当遇到偶数就把其移到数组最后一位，再把i处后面的往前移动
 	public void reOrder(int[]array) {
 		if(array.length == 0) {
 			return;
 		}
 		int temp = 0; //存储偶数
 		int odd_count = 0;
-		for(int i=0;i<array.length-1-odd_count;i++) {
-			while((array[i]&0x1)==0) {
+		int i = 0;
+		//65,67转化为66，68可以提升效率，for和while同时存在时,可以把while放在最外层，for就可以改为判断语句了~少一层循环就会快很多
+//		for(int i=0;i<array.length-1-odd_count;i++) {
+		while(i<=array.length-1-odd_count) {
+//			while((array[i]&0x1)==0) {
+			if((array[i]&0x1)==0) {
 				odd_count++;
 				temp = array[i];
 				for(int j=i;j<array.length-1;j++) {
 					array[j] = array[j+1];
 				}
 				array[array.length-1] = temp;
+//				continue;
 			}
-			continue;
+			else i++;
 		}
 	}
-	//在实现题目要求的同时，保证奇数部分和偶数部分内部相对顺序不变
-	public void rereOrder(int[]array) {
-		if(array.length == 0) {
-			return;
-		}
-		int temp = 0; //存储偶数
-		int i = 0;
-		while(i<array.length-1) {
-			if((array[i] & 0x1) ==1) { //奇数
-				i++;
-			}
-			int j = i+1;
-			while((array[j] & 0x1) ==0) {
-				j++;
-			}
-			
-		}
-	}
-
 }

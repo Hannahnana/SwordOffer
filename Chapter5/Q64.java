@@ -31,14 +31,17 @@ class Summation{
 	static int sum;
 	static int N;
 	public Summation(){
+		System.out.println("构造"+N);
 		N++;
 		sum+=N;
 	}
 	public static void reset() {
+		System.out.println("reset"+N);
 		N=0;
 		sum = 0;
 	}
 	public static int getSum() {
+		System.out.println("getSum"+N);
 		return sum;
 	}
 }

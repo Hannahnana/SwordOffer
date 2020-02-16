@@ -60,7 +60,8 @@ public class Q8 {
 		tn8.father = tn4;
 		
 		Q8 nextNode = new Q8();
-		TreeLinkNode pNode = tn2;
+		TreeLinkNode pNode = tn6;
+		System.out.print(tn6.val);
 		TreeLinkNode next = nextNode.Solution(pNode);
 		System.out.print(next.val);
 	}
@@ -84,11 +85,11 @@ public class Q8 {
 			TreeLinkNode pNode_father = pNode.father;
 			if (pNode_father!=null) {
 				if(pNode_father.left == pNode) { //该节点为其父节点的左孩子
-					return pNode;
+					return pNode.father;
 				}else {
 					while(pNode.father != null) {
 						pNode = pNode.father;
-						if(pNode.father.left!=pNode) {
+						if(pNode.father!=null && pNode.father.left!=pNode) {  //注意判断条件：首先要满足pNode.father!=null才能对pNode.father.left进行判断
 							continue;
 						}
 						else {
